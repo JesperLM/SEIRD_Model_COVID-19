@@ -6,19 +6,19 @@ To do this a ODE model is used and compared to the data available from Folkhäls
 ## Model
 The model used in the code is a compartmentalized model based on a SIR approch. The change with respect to a SIR model is that this model also will include the incubation period and the deceased. A visulazation of the model is shown below.
 
-![alt text](Figure\SEIRD-model.PNG "Model-fig")
+![Model Visulization](https://raw.githubusercontent.com/JesperLM/SEIRD_Model_COVID-19/master/Figure/SEIRD-model.PNG)
 
 This model uses the following ordinary differatial equations:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;  \frac{dS}{dt}=-\frac{\beta IS}{N-D}"/>,
+<img src="https://render.githubusercontent.com/render/math?math=\LARGE  \frac{dS}{dt}=-\frac{\beta IS}{N-D}"/>,
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;  \frac{dE}{dt}=\frac{\beta IS}{N-D}-\alpha E" />,
+<img src="https://render.githubusercontent.com/render/math?math=\LARGE  \frac{dE}{dt}=\frac{\beta IS}{N-D}-\alpha E" />,
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;  \frac{dI}{dt}=\alpha E - \gamma I - \mu I" />,
+<img src="https://render.githubusercontent.com/render/math?math=\LARGE  \frac{dI}{dt}=\alpha E - \gamma I - \mu I" />,
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;  \frac{dR}{dt}=\gamma I"/>,
+<img src="https://render.githubusercontent.com/render/math?math=\LARGE  \frac{dR}{dt}=\gamma I"/>,
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;  \frac{dD}{dt}=\mu I"/>,
+<img src="https://render.githubusercontent.com/render/math?math=\LARGE  \frac{dD}{dt}=\mu I"/>,
 
 where S is the number of suseptible individuals, E is the number of individuals exposed to the disease, I is the numbner of infected individuals, R is the amount of recoverd individuals (imune) and D is the number of individuals who have died from the disease.
 
@@ -39,18 +39,18 @@ An initial condition is needed to start calcualting the spread of the model. The
 
 From the values in the table above the reproduction number would be ~4.74. However the reproduction number has been reduce with the social distancing that has been used.
 
-![alt text](Figure\reproduction.png "Re-fig")
+![Reproduction number](https://raw.githubusercontent.com/JesperLM/SEIRD_Model_COVID-19/master/Figure/reproduction.png)
 
 ## Output
 Using the model preseted above the both the model and the reported numbers predict ~5 000 deaths up to the swedish midsummer. A visulization of the prediction can be seen below.
 
-![alt text](Figure\death.png "Death-fig")
+![Number of Death per day](https://raw.githubusercontent.com/JesperLM/SEIRD_Model_COVID-19/master/Figure/death.png)
 
 It can be seen that even with a slight reducttion in the social distancing the virus will increase it speading during the fall. With this model the number of dead in Sweden after a year is predicted to be ~11 000 people. 
 
 Even dough it some tiomes feels like the pandemic is about to end the outbreak is far from over if we relax the social distancing. This model predicts that after 1 year 88% of the swedish population will not have been infected. If a lower death rate would have been assumed this number will be lower, but since the estimated fatality rate is in the range 0.5-1% no more than 24% (linear scaling) would have been invfected if a fatality rate of 0.5 had been used.
 
-![alt text](Figure\outbreak.png "Uutbreak-fig")
+![Overview of Outbreak](https://raw.githubusercontent.com/JesperLM/SEIRD_Model_COVID-19/master/Figure/outbreak.png)
 
 Remeber to keep up the social distansing and wash your hands!
 
