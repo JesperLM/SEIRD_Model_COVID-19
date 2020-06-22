@@ -121,7 +121,7 @@ def outbreak():
     ax1.legend()
 
     # Subplot for the Death rate
-    ax2 = fig.add_subplot(gs[0, 0])
+    ax2 = fig.add_subplot(gs[1, :])
 
     ax2.plot(t_ivp[:-1], rate_D, label='Predicted Death Rate', color='tab:blue', zorder=10)
     ax2.bar(time_dead, df_dead['Antal_avlidna'], label='Daily Death', color='tab:orange', width=1)
@@ -138,10 +138,10 @@ def outbreak():
     ax2.set_ylim(0,120)#N)
     ax2.xaxis.set_major_locator(plt.MultipleLocator(60))
 
-    ax2.legend(loc=4)
+    ax2.legend()
 
     # Subplot for the pandemic outbreak
-    ax3 = fig.add_subplot(gs[1, :])
+    ax3 = fig.add_subplot(gs[0, 0])
 
     ax3.plot(t_ivp, S, label='Susceptibles')
     ax3.plot(t_ivp, E, label='Exposed')
@@ -154,7 +154,7 @@ def outbreak():
     ax3.set_ylim(0,N)
     ax3.set_xlim(0,Days)
     ax3.xaxis.set_major_locator(plt.MultipleLocator(30))
-    ax3.text(130,7500000, r'Assumed 1% death rate')
+    ax3.text(80,7500000, r'Assumed 1% death rate')
 
     ax3.legend()
 
