@@ -32,10 +32,10 @@ As mentined earlier the model aims to predict the spread of the disease in Swede
 |  β   | 0.32       | Tuned for model    |
 |  α   | 1/5        | The average incubation time has been reported to be 5  days      |
 |  γ   | 1/15       | The average time beeing sick has been reported to be 15 days    |
-|  μ   | 1% * γ     | The assumed fatality rate  |
+|  μ   | 0.5% * γ   | The assumed fatality rate  |
 |  N   | 10 000 000 | Population of Sweden  \| |
 
-An initial condition is needed to start calcualting the spread of the model. The one used in this model is that there is are 50 intially exposed to the disease and 100 individuals who are sick.
+An initial condition is needed to start calcualting the spread of the model. The one used in this model is that there is are 25 intially exposed to the disease and 50 individuals who are sick.
 
 From the values in the table above the reproduction number would be ~4.74. However the reproduction number has been reduce with the social distancing that has been used.
 

@@ -27,8 +27,8 @@ def movingAverage(series, window_size, exclude = 1):
 
 def social_distancing(t):
     """ Defines curves for effects of social distancing. """
-    time_array =       np.array([0, 32,   35,   45,   54,   59,   60,   62,   70,  130,  200,  270,  300,  400, 1000])
-    distancing_array = np.array([1,  1, 0.99, 0.95, 0.80,  0.5, 0.20, 0.19, 0.15, 0.14, 0.25, 0.25, 0.25, 0.25, 0.25])
+    time_array =       np.array([0, 28,   32,   43,   51,   56,   60,   62,   67,  110,  140,  200,  220,  300,  400, 1000])
+    distancing_array = np.array([1,  1, 0.99, 0.95, 0.80,  0.5, 0.19, 0.15, 0.13, 0.11, 0.07, 0.07, 0.25, 0.25, 0.25, 0.25])
     return np.interp(t, time_array, distancing_array)
 
 def calculate_Re(t, beta, gamma, alpha, mu):
@@ -44,16 +44,16 @@ def outbreak():
     
 
     N = 10000000       # Size of population
-    E0 = 50   # Amount of initally exposed
-    I0 = 100   # Amount of initally infected
+    E0 = 25   # Amount of initally exposed
+    I0 = 50   # Amount of initally infected
     R0 = 0   # Amount of initally recovered
     D0 = 0   # Amount of initally dead
     S0 = N - E0 - I0 - R0 - D0
     incubation_time = 5     # Time before an individual is infected
     time_sick = 15          # Time an individual is sick
-    death_rate = 0.01       # death rate of disease
+    death_rate = 0.005       # death rate of disease
 
-    beta  = 0.32      # Contact rate
+    beta  = 0.4      # Contact rate
     alpha = 1 / incubation_time   # inverse of average incubation period
     gamma = 1 / time_sick  # mean recovery rate
     mu = death_rate*gamma
@@ -96,9 +96,6 @@ def outbreak():
 
     time_infected = np.linspace(0, len(df_infected['Totalt_antal_fall']), len(df_infected['Totalt_antal_fall']))+32-36
     time_dead = np.linspace(0, len(df_dead['Antal_avlidna']), len(df_dead['Antal_avlidna']))+32
-
-    print('Death toll after 120 model: ' + str(D[1200]))
-    print('Death toll after 120 true: ' + str(df_dead['Average'].sum()))
 
     # Calculate Re
     Re = calculate_Re(t_ivp, beta, gamma, alpha, mu)
@@ -154,7 +151,7 @@ def outbreak():
     ax3.set_ylim(0,N)
     ax3.set_xlim(0,Days)
     ax3.xaxis.set_major_locator(plt.MultipleLocator(30))
-    ax3.text(80,7500000, r'Assumed 1% death rate')
+    ax3.text(80,7500000, r'Assumed 0.5% death rate')
 
     ax3.legend()
 
@@ -229,7 +226,7 @@ def outbreak():
     ax3.set_ylim(0,N)
     ax3.set_xlim(0,Days)
     ax3.xaxis.set_major_locator(plt.MultipleLocator(30))
-    ax3.text(130,7500000, r'Assumed 1% death rate')
+    ax3.text(130,7500000, r'Assumed 0.5% death rate')
 
     ax3.legend()
 
